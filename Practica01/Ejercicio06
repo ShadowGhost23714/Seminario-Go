@@ -1,0 +1,28 @@
+/*
+Escriba un programa que lee desde la entrada estándar dos
+enteros y retorne la división entre el mayor de ellos y el menor.
+Realizar el mismo programa considerando que se leen dos
+enteros sin signo. Luego modifique para que trabaje con reales
+(punto flotante). Ver que sucede con las división por cero.
+*/
+
+package main
+
+import "fmt"
+
+func main() {
+	a := 0
+	b := 0
+	c := 0
+	fmt.Print("Ingrese el primer número: ")
+	fmt.Scanln(&a)
+	fmt.Print("Ingrese el segundo número: ")
+	fmt.Scanln(&b)
+	if a > b {
+		c = a / b
+		fmt.Println("La division entre ", a, " y ", b, " es de ", c)
+	} else {
+		c = b / a
+		fmt.Println("La division entre ", b, " y ", c, " es de ", c)
+	}
+}

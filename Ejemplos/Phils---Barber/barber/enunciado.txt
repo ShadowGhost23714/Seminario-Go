@@ -1,0 +1,17 @@
+El barbero tiene una silla de barbero en una sala de corte y una sala de espera que contiene varias sillas.
+
+Cuando el barbero termina de cortar el cabello de un cliente, lo despide y va a la sala de espera para ver si hay más esperando.
+
+Si los hay, lleva a uno de ellos a la silla y le corta el pelo.
+
+Si no los hay, vuelve a la silla y duerme en ella.
+
+Cada cliente, cuando llega, mira para ver qué está haciendo el peluquero.
+
+Si el peluquero está durmiendo, el cliente lo despierta y se sienta en la silla de la sala de corte.
+
+Si el peluquero corta el cabello, el cliente se queda en la sala de espera.
+
+Si hay una silla libre en la sala de espera, el cliente se sienta en ella y espera su turno.
+
+Si no hay silla libre, el cliente se va.
