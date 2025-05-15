@@ -34,7 +34,7 @@ import (
 
 const digitos = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-func Convert4(v int, b int) string { // antigüa solución
+func Convert4(v int, b int) string { // antigua solución
 	cociente := v / b
 	residuo := v % b
 	if cociente == 0 {
@@ -43,7 +43,7 @@ func Convert4(v int, b int) string { // antigüa solución
 	return Convert3(cociente, b) + strconv.Itoa(residuo)
 }
 
-func Convert3(v int, b int) string { // antigüa solución
+func Convert3(v int, b int) string { // antigua solución
 	if b < 2 || b > 36 {
 		fmt.Println("Base no válida")
 	}
