@@ -1,4 +1,4 @@
-package main
+package practica02
 
 import (
 	"errors"
