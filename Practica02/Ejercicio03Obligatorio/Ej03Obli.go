@@ -27,6 +27,11 @@ position = 6
 
 package main
 
+import (
+	"fmt"
+	"strconv"
+)
+
 type racha struct {
 	num  int
 	cant int
@@ -34,11 +39,22 @@ type racha struct {
 
 type OptimumSlice []racha
 
-func New(s slice) OptimumSlice {
-	if IsEmpty(s) {
+func New(s []int) OptimumSlice {
+	if len(s) == 0 {
 		return nil
 	}
-
+	var o OptimumSlice
+	cant := 1
+	for i := 1; i < len(s); i++ {
+		if s[i] == s[i-1] {
+			cant++
+		} else {
+			o = append(o, racha{s[i-1], cant})
+			cant = 1
+		}
+	}
+	o = append(o, racha{s[len(s)-1], cant})
+	return o
 }
 
 func IsEmpty(o OptimumSlice) bool {
@@ -67,10 +83,46 @@ func LastElement(o OptimumSlice) int {
 	return -1
 }
 
-func Insert(o OptimumSlice, element int, position int) int {
-
+func (o OptimumSlice) ToString() string {
+	str := "["
+	for i := range o {
+		str += strconv.Itoa(o[i].num) + "(" + strconv.Itoa(o[i].cant) + ")"
+		if i+1 != len(o) {
+			str += ", "
+		}
+	}
+	return str + "]"
 }
 
 func main() {
-
+	s := []int{3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 23, 23, 23, 23, 23, 23, 3, 3, 3, 3, 3, 3, 3, 3, 7, 5, 5, 5}
+	o := New(s)
+	fmt.Println(o.ToString())
+	fmt.Println("Cantidad de nros en total =", Len(o))
+	fmt.Println("Nro del frente =", FrontElement(o))
+	fmt.Println("Nro de atras =", LastElement(o))
 }
+
+/*
+// primera solucion (incorrecta)
+func New(s []int) OptimumSlice {
+	if len(s) < 0 {
+		return nil
+	}
+	var o OptimumSlice
+	var cant int
+	var ultimo int
+	for i := 0; i < len(s); i++ {
+		ultimo = s[i]
+		cant = 0
+		for i < len(s) {
+			if ultimo == s[i] {
+				cant++
+			}
+			i++
+		}
+		o = append(o, racha{ultimo, cant})
+	}
+	return o
+}
+*/
