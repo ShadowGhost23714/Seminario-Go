@@ -121,7 +121,7 @@ func main() {
 	alumno6 := &Ingresante{"Fuseneco", "Dardo", "Buenos Aires", data{18, 6, 1968}, true, 3}
 	ingresantes := []Ingresante{*alumno, *alumno2, *alumno3, *alumno4, *alumno5, *alumno6}
 
-	// Ordenar primero por edad y luego por orden alfabético
+	// Ordenar primero por edad y luego por orden alfabetico
 	sort.Slice(ingresantes, func(i, j int) bool { // devuelve true si slice[i] debe ir antes que slice[j]
 		// Primero: comparar por edad
 		if mayorEdad(ingresantes[i], ingresantes[j]) {
