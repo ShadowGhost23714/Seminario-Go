@@ -131,7 +131,8 @@ func analizarLista(self *List) (int, string) {
 		}
 		anios[l.val.fecha.anio]++
 		carreras[l.val.cod]++
-		if l.val.secundario {
+		if l.val.secundario == true { // no funciona correctamente
+			fmt.Println(l.val)
 			self.Remove()
 		}
 		l = l.next
@@ -155,23 +156,6 @@ func analizarLista(self *List) (int, string) {
 	return maxAnio, maxCarrera
 }
 
-func (self *List) RemoveIf(secundario bool) { // no funciona correctamente
-	for self.first != nil && self.first.val.secundario == secundario {
-		self.first = self.first.next
-	}
-	if self.first == nil {
-		return
-	}
-	act := self.first
-	for act.next != nil {
-		if act.next.val.secundario == secundario {
-			act.next = act.next.next
-		} else {
-			act = act.next
-		}
-	}
-}
-
 func main() {
 	lista := New()
 	lista.PushFront(ingresante{"Argento", "Pepe", "Buenos Aires", data{14, 2, 1955}, true, "LS"})
@@ -184,6 +168,5 @@ func main() {
 	anio, carrera := analizarLista(&lista)
 	fmt.Println("La carrera con mas inscriptos es ", carrera)
 	fmt.Println("El año con mas inscriptos es ", anio)
-	lista.RemoveIf(false)
 	fmt.Println(lista.ToString())
 }
